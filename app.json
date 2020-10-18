@@ -1,0 +1,29 @@
+{
+  "name": "n8n-chatbots-heroku-deploy",
+  "description": "Deploy n8n docker container to heroku",
+  "repository": "https://github.com/jpruden92/n8n-chatbots-heroku-deploy",
+  "logo": "https://res.cloudinary.com/practicaldev/image/fetch/s--1omssPcC--/c_fill,f_auto,fl_progressive,h_320,q_auto,w_320/https://dev-to-uploads.s3.amazonaws.com/uploads/organization/profile_image/2245/c4c3402e-734b-415a-8000-4ca5e795bee6.png",
+  "website": "https://jorgeprudencio.com/",
+  "keywords": ["docker", "container", "n8n"],
+  "stack": "container",
+  "env": {
+    "N8N_BASIC_AUTH_USER": {
+      "description": "N8N_BASIC_AUTH_USER"
+    },
+    "N8N_BASIC_AUTH_PASSWORD": {
+      "description": "N8N_BASIC_AUTH_PASSWORD"
+    },
+    "N8N_ENCRYPTION_KEY": {
+      "description": "N8N_ENCRYPTION_KEY",
+      "generator": "secret"
+    },
+    "APP_NAME": {
+      "description": "APP_NAME"
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql"
+    }
+  ]
+}
