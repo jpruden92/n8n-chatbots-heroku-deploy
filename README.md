@@ -1,6 +1,6 @@
 ### Intro
 
-This repository contains a customized version of [N8N](https://n8n.io/), an extandable tool for workflow automation.
+This repository contains a customized version of [N8N](https://n8n.io/), an extendable tool for workflow automation.
 
 This customized version is focused on chatbots development, integrating nodes that allow to connect chatbot development platforms like Dialogflow.
 
@@ -14,11 +14,11 @@ When you click on ``Deploy to Heroku`` some configuration variables will be requ
 
 | Config Var | Description |
 | - | - |
-| APP_NAME | Your app name. Must be equal to the name that you introduced on ``App name`` field. |
+| APP_NAME | Your app name. Must be equal to the name that you introduced in ``App name`` field. |
 | N8N_BASIC_AUTH_USER | This username will be required to you each time you access to the tool |
 | N8N_BASIC_AUTH_PASSWORD | This password will be required to you each time you access to the tool |
 
-### Custom nodes
+### Custom nodes for chatbots
 
 Here is a list of custom nodes that we have added to N8N to make it useful for chatbots:
 
