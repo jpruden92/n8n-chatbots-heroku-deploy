@@ -15,8 +15,8 @@ When you click on ``Deploy to Heroku`` some configuration variables will be requ
 | Config Var | Description |
 | - | - |
 | APP_NAME | Your app name. Must be equal to the name that you introduced in ``App name`` field. |
-| N8N_BASIC_AUTH_USER | This username will be required to you each time you access to the tool |
-| N8N_BASIC_AUTH_PASSWORD | This password will be required to you each time you access to the tool |
+| N8N_BASIC_AUTH_USER | This username will be required to you each time you access to the tool. |
+| N8N_BASIC_AUTH_PASSWORD | This password will be required to you each time you access to the tool. |
 
 ### Custom nodes for chatbots
 
