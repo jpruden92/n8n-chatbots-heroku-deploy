@@ -8,6 +8,8 @@ Also, this version is auto deployable on Heroku PaaS. You only need to click on 
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
+![](./resources/deploy.gif)
+
 ### Configuration
 
 When you click on ``Deploy to Heroku`` some configuration variables will be required to you. Here you have a description of each variable:
