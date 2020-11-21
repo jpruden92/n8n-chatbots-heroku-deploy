@@ -58,7 +58,8 @@ Modify N8N with **[!]** symbol with your OpenWeatherMap credential created on st
 
 **5. Save your N8N flow and add your fulfillment URL**
 
-(TODO - Video)
+![](./resources/get_fulfillment_url.gif)
+![](./resources/set_fulfillment_url.gif)
 
 ### Stocks Chatbot (Google Sheets + Dialogflow + N8N)
 
@@ -91,4 +92,5 @@ Copy your spreadsheet ID and paste it on the N8N nodes with Google Sheet symbol.
 
 **6. Save your N8N flow and add your fulfillment URL**
 
-(TODO - Video)
+![](./resources/get_fulfillment_url.gif)
+![](./resources/set_fulfillment_url.gif)
