@@ -46,11 +46,11 @@ You can read about N8N license [here](https://faircode.io/).
 
 **2. Import intents on Dialogflow**
 
-[weather.info.json](./resources/weather.info.json)
+- [weather.info.json](./resources/weather.info.json)
 
 **3. Import flow on N8N**
 
-[weather.n8n.json](./resources/weather.n8n.json)
+- [weather.n8n.json](./resources/weather.n8n.json)
 
 **4. Use your credentials**
 
@@ -65,12 +65,13 @@ Modify N8N with **[!]** symbol with your OpenWeatherMap credential created on st
 
 **1. Add a Google API service account credential to N8N**
 
-[https://docs.n8n.io/credentials/google/#using-service-account](https://docs.n8n.io/credentials/google/#using-service-account)
+- Get Service Account: [https://docs.n8n.io/credentials/google/#using-service-account](https://docs.n8n.io/credentials/google/#using-service-account)
+- Enable Google Sheets API: https://support.google.com/googleapi/answer/6158841?hl=en
 
 **2. Import intents on Dialogflow**
 
-[question.get.json](./resources/question.get.json)
-[question.add.json](./resources/question.add.json)
+- [question.get.json](./resources/question.get.json)
+- [question.add.json](./resources/question.add.json)
 
 **3. Import flow on N8N**
 
@@ -86,7 +87,7 @@ Modify N8N with **[!]** symbol with your Google API credential created on step 1
 
 Your created google spreadsheet will have an URL like this:
 
-``https://docs.google.com/spreadsheets/d/**[YOUR_SPREADSHEET_ID]**/edit``
+``https://docs.google.com/spreadsheets/d/[YOUR_SPREADSHEET_ID]/edit``
 
 Copy your spreadsheet ID and paste it on the N8N nodes with Google Sheet symbol.
 
