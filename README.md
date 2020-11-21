@@ -61,7 +61,7 @@ Modify N8N with **[!]** symbol with your OpenWeatherMap credential created on st
 ![](./resources/get_fulfillment_url.gif)
 ![](./resources/set_fulfillment_url.gif)
 
-### Stocks Chatbot (Google Sheets + Dialogflow + N8N)
+### Questions Chatbot (Google Sheets + Dialogflow + N8N)
 
 **1. Add a Google API service account credential to N8N**
 
