@@ -85,7 +85,7 @@ Modify N8N with **[!]** symbol with your Google API credential created on step 1
 
 Your created google spreadsheet will have an URL like this:
 
-https://docs.google.com/spreadsheets/d/**[YOUR_SPREADSHEET_ID]**/edit
+``https://docs.google.com/spreadsheets/d/**[YOUR_SPREADSHEET_ID]**/edit``
 
 Copy your spreadsheet ID and paste it on the N8N nodes with Google Sheet symbol.
 
