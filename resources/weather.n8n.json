@@ -1,0 +1,79 @@
+{
+  "name": "Example",
+  "nodes": [
+    {
+      "parameters": {},
+      "name": "Start",
+      "type": "n8n-nodes-base.start",
+      "typeVersion": 1,
+      "position": [
+        250,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "myString": "=The weather in {{$json[\"name\"]}} is {{$json[\"main\"][\"temp\"]}} degrees."
+      },
+      "name": "Dialog Flow Response",
+      "type": "CUSTOM.dialogFlowResponse",
+      "typeVersion": 1,
+      "position": [
+        1450,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "path": "fulfillment"
+      },
+      "name": "Dialog Flow",
+      "type": "CUSTOM.dialogFlow",
+      "typeVersion": 1,
+      "position": [
+        650,
+        300
+      ],
+      "webhookId": "d9d02659-cb44-4f28-b65b-126308d3843f"
+    },
+    {
+      "parameters": {
+        "cityName": "={{$json[\"body\"][\"fulfillmentMessages\"][0][\"queryResult\"][\"parameters\"][\"geo-city\"]}}"
+      },
+      "name": "OpenWeatherMap",
+      "type": "n8n-nodes-base.openWeatherMap",
+      "typeVersion": 1,
+      "position": [
+        1050,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Dialog Flow": {
+      "main": [
+        [
+          {
+            "node": "OpenWeatherMap",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenWeatherMap": {
+      "main": [
+        [
+          {
+            "node": "Dialog Flow Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {},
+  "id": "1"
+}

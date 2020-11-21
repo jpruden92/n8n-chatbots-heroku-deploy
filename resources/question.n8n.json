@@ -1,0 +1,246 @@
+{
+  "name": "Example 2",
+  "nodes": [
+    {
+      "parameters": {},
+      "name": "Start",
+      "type": "n8n-nodes-base.start",
+      "typeVersion": 1,
+      "position": [
+        250,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "path": "fulfillment2"
+      },
+      "name": "Dialog Flow",
+      "type": "CUSTOM.dialogFlow",
+      "typeVersion": 1,
+      "position": [
+        350,
+        500
+      ],
+      "webhookId": "65488bbe-5373-4f16-b24d-d2ddff0a136f"
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "email",
+              "value": "={{$json[\"body\"][\"fulfillmentMessages\"][0][\"queryResult\"][\"parameters\"][\"email\"]}}"
+            },
+            {
+              "name": "question",
+              "value": "={{$json[\"body\"][\"fulfillmentMessages\"][0][\"queryResult\"][\"parameters\"][\"question\"]}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        750,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{$json[\"body\"][\"fulfillmentMessages\"][0][\"queryResult\"][\"intent\"][\"displayName\"]}}",
+        "rules": {
+          "rules": [
+            {
+              "value2": "question.get"
+            },
+            {
+              "value2": "question.add",
+              "output": 1
+            }
+          ]
+        }
+      },
+      "name": "Switch",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        550,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "lookup",
+        "lookupColumn": "email",
+        "lookupValue": "={{$json[\"body\"][\"fulfillmentMessages\"][0][\"queryResult\"][\"parameters\"][\"email\"]}}",
+        "options": {
+          "continue": true
+        }
+      },
+      "name": "Find Email on Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 1,
+      "position": [
+        750,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "options": {}
+      },
+      "name": "Add item to Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 1,
+      "position": [
+        950,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{!!$json[\"question\"]}}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        950,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "myString": "=I have found this question: {{$json[\"question\"]}}"
+      },
+      "name": "Return result Dialogflow",
+      "type": "CUSTOM.dialogFlowResponse",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        250
+      ]
+    },
+    {
+      "parameters": {
+        "myString": "Question registered!"
+      },
+      "name": "Saved Result Dialogflow",
+      "type": "CUSTOM.dialogFlowResponse",
+      "typeVersion": 1,
+      "position": [
+        1150,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "myString": "I can't find results for this email"
+      },
+      "name": "No results Dialogflow",
+      "type": "CUSTOM.dialogFlowResponse",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        420
+      ]
+    }
+  ],
+  "connections": {
+    "Dialog Flow": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "Add item to Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Find Email on Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add item to Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Saved Result Dialogflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find Email on Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF": {
+      "main": [
+        [
+          {
+            "node": "Return result Dialogflow",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No results Dialogflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {},
+  "id": "2"
+}
